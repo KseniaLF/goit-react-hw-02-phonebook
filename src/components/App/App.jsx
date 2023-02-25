@@ -17,20 +17,25 @@ export class App extends Component {
   };
 
   handleSubmit = (values, { resetForm }) => {
-    // console.log('values:', values);
+    console.log('values:', values);
     // console.log('actions:', actions);
-    this.setState(prevState => {
-      return {
-        contacts: [
-          {
-            name: values.name,
-            number: values.number,
-            id: nanoid(),
-          },
-          ...prevState.contacts,
-        ],
-      };
+    const findDuplicateContact = this.state.contacts.find(item => {
+      return item.name === values.name;
     });
+    findDuplicateContact
+      ? alert(`${values.name} is already in contacts.`)
+      : this.setState(prevState => {
+          return {
+            contacts: [
+              {
+                name: values.name,
+                number: values.number,
+                id: nanoid(),
+              },
+              ...prevState.contacts,
+            ],
+          };
+        });
 
     resetForm();
   };
