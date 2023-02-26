@@ -12,7 +12,7 @@ const initialValues = {
 const phoneRegExp =
   /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 let Schema = object({
-  name: string().max(30).required('Enter a name'),
+  name: string().max(20).required('Enter a name'),
   number: string()
     .matches(phoneRegExp, 'Phone number is not valid')
     .required('Enter a number'),

@@ -7,7 +7,7 @@ export const AppContainer = styled.div`
   padding: 20px;
   font-size: 30px;
 
-  max-width: 500px;
+  /* max-width: 500px; */
 
   h1 {
     margin-bottom: 15px;

@@ -10,4 +10,12 @@ export const Layout = styled.div`
   /* flex-direction: column; */
   align-items: center;
   color: #010101;
+
+  input {
+    width: 100%;
+    /* Убираем влияние padding и border на конечную ширину input */
+    box-sizing: border-box;
+    /* Обнуляем margin */
+    margin: 0;
+  }
 `;

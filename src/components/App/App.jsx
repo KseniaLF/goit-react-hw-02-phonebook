@@ -9,6 +9,7 @@ import { AppContainer } from './App.styled';
 export class App extends Component {
   state = {
     contacts: [
+      { name: 'mango MAX- WidthThis', number: '380631078335', id: nanoid() },
       { name: 'John', number: '452-69-23', id: nanoid() },
       { name: 'Ann', number: '563-45-76', id: nanoid() },
       { name: 'Michael', number: '742-96-83', id: nanoid() },
@@ -17,7 +18,7 @@ export class App extends Component {
   };
 
   handleSubmit = (values, { resetForm }) => {
-    console.log('values:', values);
+    // console.log('values:', values);
     // console.log('actions:', actions);
     const findDuplicateContact = this.state.contacts.find(item => {
       return item.name === values.name;
@@ -38,6 +39,16 @@ export class App extends Component {
         });
 
     resetForm();
+  };
+
+  deleteContact = contactId => {
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(
+          contact => contact.id !== contactId
+        ),
+      };
+    });
   };
 
   changeFilter = e => {
@@ -65,7 +76,10 @@ export class App extends Component {
 
         <Filter filter={filter} onChange={this.changeFilter} />
 
-        <ContactList contacts={this.getFilteredContacts()} />
+        <ContactList
+          contacts={this.getFilteredContacts()}
+          onDelete={this.deleteContact}
+        />
       </AppContainer>
     );
   }
