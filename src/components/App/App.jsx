@@ -1,15 +1,15 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Form } from './Form/Form';
+import { Form } from '../Form/Form';
 
-import { ContactList } from './ContactList/ContactList';
+import { ContactList } from '../ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { AppContainer } from './App.styled';
 
 export class App extends Component {
   state = {
     contacts: [
-      { name: 'mango MAX- WidthThis', number: '380631078335', id: nanoid() },
+      // { name: 'mango MAX- WidthThis', number: '380631078335', id: nanoid() },
       { name: 'John', number: '452-69-23', id: nanoid() },
       { name: 'Ann', number: '563-45-76', id: nanoid() },
       { name: 'Michael', number: '742-96-83', id: nanoid() },
